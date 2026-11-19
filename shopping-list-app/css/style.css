@@ -1,0 +1,1352 @@
+
+/* =================================
+   1. CONFIGURAÇÕES GERAIS
+================================= */
+
+:root {
+  --primary: #27834c;
+  --primary-light: #eaf5ed;
+  --primary-dark: #205e38;
+
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-secondary: #f7f8f7;
+
+  --text: #252925;
+  --text-secondary: #858b86;
+  --border: #ecefec;
+
+  --blue: #3478c9;
+  --blue-light: #eaf1fc;
+
+  --purple: #9556b5;
+  --purple-light: #f5edf9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+/* =================================
+   2. CABEÇALHO
+================================= */
+
+.app-header {
+  padding: 24px 22px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-icon .icon {
+  font-size: 23px;
+}
+
+.brand h1 {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.brand p {
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* =================================
+   3. CONTEÚDO DAS TELAS
+================================= */
+
+#app-content {
+  padding: 26px 22px;
+}
+
+.screen {
+  animation: fade-in 0.2s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   4. TELA INÍCIO
+================================= */
+
+.welcome-section {
+  margin-bottom: 25px;
+}
+
+.current-date,
+.eyebrow {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.welcome-section h2 {
+  font-size: 27px;
+  margin-bottom: 7px;
+}
+
+.welcome-section > p:last-child {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.featured-card {
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  transition: transform 0.15s ease;
+}
+
+.featured-card:active,
+.option-card:active {
+  transform: scale(0.98);
+}
+
+.featured-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.featured-content {
+  flex: 1;
+}
+
+.featured-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--primary);
+}
+
+.featured-content h3 {
+  font-size: 20px;
+  margin: 6px 0;
+}
+
+.featured-content p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #52735d;
+}
+
+.card-arrow {
+  font-size: 23px;
+  color: var(--primary);
+}
+
+/* =================================
+   5. SEÇÃO ACOMPANHAR
+================================= */
+
+.home-section {
+  margin-top: 32px;
+}
+
+.home-section > h3 {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 17px 15px;
+  margin-bottom: 11px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--surface-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.info-content h4 {
+  font-size: 14px;
+  margin: 2px 0 6px;
+}
+
+.info-content p {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =================================
+   6. TELA NOVA COMPRA
+================================= */
+
+.page-heading {
+  margin-bottom: 26px;
+}
+
+.page-heading h2 {
+  font-size: 27px;
+  margin-bottom: 9px;
+}
+
+.page-heading > p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.purchase-options {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.option-card {
+  width: 100%;
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 17px 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  text-align: left;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.option-card:hover {
+  border-color: #d5e4d9;
+}
+
+.option-icon {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.green-icon {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.blue-icon {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.purple-icon {
+  background: var(--purple-light);
+  color: var(--purple);
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-content h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.option-content p {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.option-card .card-arrow {
+  color: #aab0aa;
+}
+
+/* =================================
+   7. MENU INFERIOR
+================================= */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 600px;
+  height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background: rgba(255, 255, 255, 0.97);
+  border-top: 1px solid var(--border);
+  padding: 8px 12px;
+  z-index: 10;
+}
+
+.nav-item {
+  flex: 1;
+  height: 100%;
+  border: none;
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.nav-icon {
+  font-size: 23px;
+  line-height: 1;
+}
+
+.nav-item.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* =================================
+   8. AVISOS
+================================= */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 92px;
+  transform: translateX(-50%) translateY(10px);
+
+  width: max-content;
+  max-width: calc(100% - 40px);
+
+  padding: 12px 17px;
+  border-radius: 12px;
+
+  background: #252925;
+  color: white;
+  font-size: 13px;
+  text-align: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease;
+  z-index: 20;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =================================
+   9. TELAS MAIORES
+================================= */
+
+@media (min-width: 601px) {
+  .app-container {
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+
+  .bottom-nav {
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+}
+
+
+/* =================================
+   10. TELA DE COMPRA
+================================= */
+
+.back-button {
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 0;
+  margin-bottom: 22px;
+}
+
+.shopping-heading {
+  margin-bottom: 22px;
+}
+
+/* FORMULÁRIO */
+
+.product-form {
+  background: var(--surface-secondary);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 18px;
+}
+
+.form-title {
+  margin-bottom: 18px;
+}
+
+.form-title h3 {
+  font-size: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+  min-width: 0;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: white;
+  color: var(--text);
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.add-product-button {
+  width: 100%;
+  height: 46px;
+  border: none;
+  border-radius: 11px;
+  background: var(--primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.add-product-button:active {
+  opacity: 0.85;
+}
+
+/* LISTA DE PRODUTOS */
+
+.shopping-list-section {
+  margin-top: 30px;
+}
+
+.list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.list-heading h3 {
+  font-size: 16px;
+}
+
+.list-heading span {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.empty-list {
+  padding: 30px 15px;
+  border: 1px dashed var(--border);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.empty-list span {
+  font-size: 30px;
+}
+
+.empty-list p {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.empty-list small {
+  display: block;
+  margin-top: 6px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* CARTÃO DE PRODUTO */
+
+.product-card {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 10px;
+  background: var(--surface);
+}
+
+.product-check {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+}
+
+.product-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.product-info {
+  color: var(--text-secondary);
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.product-card.completed .product-name {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.product-card.completed {
+  background: var(--surface-secondary);
+}
+
+.product-values {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.product-subtotal {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.remove-product {
+  display: block;
+  margin: 7px 0 0 auto;
+  border: none;
+  background: transparent;
+  color: #d35a5a;
+  font-size: 11px;
+  padding: 3px;
+}
+
+
+/* =========================================
+   TOTAL FIXO DA COMPRA
+========================================= */
+
+.purchase-total {
+  position: fixed;
+  z-index: 50;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 600px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin: 0;
+  padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+
+  background: var(--primary-light);
+  border-top: 1px solid #dceadd;
+  border-radius: 16px 16px 0 0;
+
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.purchase-total-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  color: var(--primary-dark);
+}
+
+.purchase-total-info span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.purchase-total-info strong {
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+#missing-price-count {
+  color: #a36a16;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+#finish-purchase {
+  width: auto;
+  min-width: 135px;
+  height: 46px;
+  flex-shrink: 0;
+
+  padding: 0 16px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: var(--primary);
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#finish-purchase:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+
+/* =========================================
+   CARTÕES DE PRODUTOS
+========================================= */
+
+.product-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+}
+
+.product-card .product-check {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+}
+
+.product-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.product-values {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.product-subtotal {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.product-price-missing {
+  color: #a36a16;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.edit-product,
+.remove-product {
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  padding: 4px;
+}
+
+.edit-product {
+  color: var(--primary);
+}
+
+.remove-product {
+  color: #d35a5a;
+}
+
+.edit-product-form {
+  flex: 0 0 100%;
+  display: grid;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.edit-product-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.edit-product-form input {
+  width: 100%;
+  height: 43px;
+  padding: 0 11px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  font: inherit;
+  font-size: 14px;
+}
+
+.edit-product-actions {
+  display: flex;
+  gap: 9px;
+}
+
+.edit-product-actions button {
+  flex: 1;
+  height: 42px;
+  border: none;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.save-edit-button {
+  background: var(--primary);
+  color: white;
+}
+
+.cancel-edit-button {
+  background: #eeeeee;
+  color: #333333;
+}
+
+
+/* =========================================
+   ESPAÇO PARA A BARRA FIXA
+========================================= */
+
+.app-container:has(#shopping-screen:not(.hidden)) {
+  padding-bottom: 145px;
+}
+
+.app-container:has(#shopping-screen:not(.hidden)) .bottom-nav {
+  display: none;
+}
+
+
+/* =========================================
+   CELULARES PEQUENOS
+========================================= */
+
+@media (max-width: 380px) {
+  .purchase-total {
+    padding-left: 13px;
+    padding-right: 13px;
+    gap: 8px;
+  }
+
+  .purchase-total-info strong {
+    font-size: 20px;
+  }
+
+  #finish-purchase {
+    min-width: 120px;
+    padding: 0 11px;
+    font-size: 12px;
+  }
+
+  .product-card {
+    gap: 8px;
+    padding: 12px 9px;
+  }
+}
+
+
+/* =========================================
+   11. CARTÃO DA ÚLTIMA COMPRA
+========================================= */
+
+.latest-purchase-card {
+  position: relative;
+  align-items: center;
+  min-height: 105px;
+  padding: 18px 16px;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f5faf6 100%
+  );
+
+  border: 1px solid #dceadd;
+  border-radius: 17px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.latest-purchase-card:hover {
+  border-color: #b8d6c0;
+  box-shadow: 0 5px 16px rgba(39, 131, 76, 0.08);
+}
+
+.latest-purchase-card:active {
+  transform: scale(0.985);
+  box-shadow: none;
+}
+
+.latest-purchase-card:focus-visible {
+  outline: 3px solid rgba(39, 131, 76, 0.25);
+  outline-offset: 3px;
+}
+
+/* Ícone */
+
+.latest-purchase-card .info-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 21px;
+}
+
+/* Conteúdo */
+
+.latest-purchase-card .info-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Identificação da seção */
+
+.latest-purchase-card .info-content h4 {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+/* Valor total */
+
+#latest-purchase-title {
+  color: var(--primary);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin-bottom: 5px;
+}
+
+/* Data e quantidade de produtos */
+
+.latest-purchase-card .info-content p {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Indicador de acesso */
+
+.latest-purchase-card::after {
+  content: "›";
+  color: var(--primary);
+  font-size: 27px;
+  font-weight: 400;
+  margin-left: 4px;
+  line-height: 1;
+}
+
+
+/* =================================
+   12. HISTÓRICO DE COMPRAS
+================================= */
+
+.history-count {
+  margin: 20px 0 12px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 18px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.history-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.history-item-info h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.history-item-info p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.history-item > strong {
+  flex-shrink: 0;
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Estado sem compras */
+
+#history-empty {
+  margin-top: 24px;
+}
+
+/* Responsividade */
+
+@media (max-width: 380px) {
+  .history-item {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .history-item-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .history-item-info p {
+    font-size: 0.75rem;
+  }
+
+  .history-item > strong {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* =================================
+   13. MODAL DE DETALHES DA COMPRA
+================================= */
+
+/* Fundo e posicionamento do modal */
+
+.purchase-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.purchase-modal.hidden {
+  display: none;
+}
+
+/* Fundo escurecido e desfocado */
+
+.purchase-modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  cursor: pointer;
+}
+
+/* Painel principal */
+
+.purchase-modal-content {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 520px;
+  max-height: 85vh;
+  max-height: 85dvh;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+
+  animation: modalAppear 0.25s ease;
+}
+
+/* Cabeçalho */
+
+.purchase-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 22px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.purchase-modal-header h2 {
+  margin: 0;
+
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.purchase-modal-header p {
+  margin: 6px 0 0;
+
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.purchase-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: var(--surface-secondary);
+  color: var(--text-secondary);
+
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.purchase-modal-close:hover {
+  background: var(--border);
+}
+
+/* Área rolável dos produtos */
+
+.purchase-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  padding: 8px 22px;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Produto individual */
+
+.purchase-modal-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 16px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.purchase-modal-product:last-child {
+  border-bottom: none;
+}
+
+.purchase-modal-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  min-width: 0;
+}
+
+.purchase-modal-product-name {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  overflow-wrap: anywhere;
+}
+
+.purchase-modal-product-details {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.purchase-modal-product-subtotal {
+  flex-shrink: 0;
+
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-align: right;
+}
+
+/* Rodapé e total */
+
+.purchase-modal-footer {
+  flex-shrink: 0;
+
+  padding: 20px 22px;
+
+  background: var(--surface-secondary);
+  border-top: 1px solid var(--border);
+}
+
+.purchase-modal-footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.purchase-modal-total-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.purchase-modal-footer span {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.purchase-modal-footer strong {
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Animação de entrada */
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Bloqueia a rolagem do aplicativo ao abrir o modal */
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Adaptação para celulares */
+
+@media (max-width: 600px) {
+  .purchase-modal {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .purchase-modal-content {
+    width: 100%;
+    max-width: none;
+
+    max-height: 88vh;
+    max-height: 88dvh;
+
+    border-radius: 22px 22px 0 0;
+
+    animation: modalSlideUp 0.3s ease;
+  }
+
+  .purchase-modal-header {
+    padding: 20px;
+  }
+
+  .purchase-modal-body {
+    padding: 8px 20px;
+  }
+
+  .purchase-modal-footer {
+    padding: 18px 20px;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

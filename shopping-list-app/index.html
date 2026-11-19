@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Minhas Compras</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Banco de dados -->
+  <script src="js/database.js" defer></script>
+
+  <!-- Aplicativo -->
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+  <div class="app-container">
+
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <span class="icon">🛒</span>
+        </div>
+
+        <div>
+          <h1>Minhas Compras</h1>
+          <p>Organize suas compras</p>
+        </div>
+      </div>
+    </header>
+
+    <main id="app-content">
+
+      <!-- TELA INÍCIO -->
+      <section id="home-screen" class="screen">
+
+        <div class="welcome-section">
+          <p class="current-date" id="current-date"></p>
+          <h2>Olá! 👋</h2>
+          <p>O que vamos fazer hoje?</p>
+        </div>
+
+        <button class="featured-card" data-action="new-purchase">
+          <div class="featured-icon">🛒</div>
+
+          <div class="featured-content">
+            <span class="featured-label">ACESSO RÁPIDO</span>
+            <h3>Nova compra</h3>
+            <p>Comece uma nova lista de compras.</p>
+          </div>
+
+          <span class="card-arrow">→</span>
+        </button>
+
+        <section class="home-section">
+          <h3>Acompanhar</h3>
+
+          
+          <div
+            class="info-card latest-purchase-card ongoing-purchase-card hidden"
+            id="ongoing-purchase-card"
+            data-action="resume-purchase"
+            role="button"
+            tabindex="0"
+            aria-label="Continuar compra em andamento"
+          >
+            <div class="info-icon">🕒</div>
+
+            <div class="info-content">
+              <h4>Compra em andamento</h4>
+
+              <p id="ongoing-purchase-summary">
+                Você tem uma lista não finalizada.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="info-card latest-purchase-card"
+            id="latest-purchase-card"
+            data-action="open-latest-purchase"
+            role="button"
+            tabindex="0"
+            aria-label="Consultar última compra"
+            >
+            <div class="info-icon">🧾</div>
+
+                <div class="info-content">
+                    <h4>Última compra</h4>
+                    <strong id="latest-purchase-title">R$ 0,00</strong>
+                    <p id="latest-purchase-summary">
+                    Suas compras recentes aparecerão aqui.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+      </section>
+
+      <!-- TELA NOVA COMPRA -->
+      <section id="new-purchase-screen" class="screen hidden">
+
+        <div class="page-heading">
+          <span class="eyebrow">VAMOS COMEÇAR</span>
+          <h2>Nova compra</h2>
+          <p>Como deseja começar sua lista?</p>
+        </div>
+
+        <div class="purchase-options">
+
+          <button class="option-card" data-action="start-empty">
+            <div class="option-icon green-icon">＋</div>
+
+            <div class="option-content">
+              <h3>Começar do zero</h3>
+              <p>Crie uma lista vazia e adicione apenas os produtos que precisa.</p>
+            </div>
+
+            <span class="card-arrow">→</span>
+          </button>
+
+          <button class="option-card" data-action="load-standard">
+            <div class="option-icon blue-icon">☷</div>
+
+            <div class="option-content">
+              <h3>Lista padrão</h3>
+              <p>Utilize sua lista habitual com os produtos que costuma comprar.</p>
+            </div>
+
+            <span class="card-arrow">→</span>
+          </button>
+
+          <button class="option-card" data-action="previous-purchase">
+            <div class="option-icon purple-icon">↻</div>
+
+            <div class="option-content">
+              <h3>Compra anterior</h3>
+              <p>Escolha uma compra anterior para utilizar como base.</p>
+            </div>
+
+            <span class="card-arrow">→</span>
+          </button>
+
+        </div>
+
+      </section>
+      
+      <!-- TELA COMPRA EM ANDAMENTO -->
+      <section id="shopping-screen" class="screen hidden">
+
+        <button class="back-button" data-action="back-to-new-purchase">
+            ← Voltar
+        </button>
+
+        <div class="page-heading shopping-heading">
+            <span class="eyebrow">SUA LISTA</span>
+            <h2>Minha compra</h2>
+            <p>Adicione os produtos que deseja comprar.</p>
+        </div>
+
+        <!-- FORMULÁRIO DE PRODUTO -->
+        <form id="product-form" class="product-form">
+
+            <div class="form-title">
+            <h3>Adicionar produto</h3>
+            </div>
+
+            <div class="form-group">
+            <label for="product-name">Nome do produto</label>
+            <input
+                type="text"
+                id="product-name"
+                placeholder="Ex.: Leite integral"
+                required
+                maxlength="80"
+            >
+            </div>
+
+            <div class="form-row">
+
+            <div class="form-group">
+                <label for="product-quantity">Quantidade</label>
+                <input
+                type="number"
+                id="product-quantity"
+                min="1"
+                step="1"
+                value="1"
+                required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="product-price">Preço unitário (R$)</label>
+                <input
+                type="number"
+                id="product-price"
+                min="0"
+                step="0.01"
+                placeholder="0,00"
+                >
+            </div>
+
+            </div>
+
+            <div class="form-group">
+            <label for="product-category">Categoria</label>
+
+            <select id="product-category">
+                <option value="Alimentos">Alimentos</option>
+                <option value="Pães e bolachas">Pães e bolachas</option>
+                <option value="Sacolão">Sacolão</option>
+                <option value="Refrigerados">Refrigerados</option>
+                <option value="Higiene">Higiene</option>
+                <option value="Limpeza e derivados">Limpeza e derivados</option>
+            </select>
+            </div>
+
+            <button type="submit" class="add-product-button">
+            + Adicionar produto
+            </button>
+
+        </form>
+
+        <!-- PRODUTOS ADICIONADOS -->
+        <section class="shopping-list-section">
+
+            <div class="list-heading">
+            <h3>Produtos</h3>
+            <span id="product-count">0 produtos</span>
+            </div>
+
+            <div id="product-list">
+
+            <div id="empty-list" class="empty-list">
+                <span>🛒</span>
+                <p>Sua lista está vazia.</p>
+                <small>Adicione seu primeiro produto acima.</small>
+            </div>
+
+            </div>
+
+        </section>
+
+        <!-- TOTAL DA COMPRA -->
+        <div class="purchase-total">
+            <div class="purchase-total-info">
+                <span id="purchase-total-label">Total da compra</span>
+                <strong id="purchase-total">R$ 0,00</strong>
+                <small id="missing-price-count"></small>
+            </div>
+
+            <button id="finish-purchase" class="finish-button">
+                Finalizar compra
+            </button>
+        </div>
+
+      </section>
+
+      <!-- =================================
+           TELA HISTÓRICO
+      ================================= -->
+
+      <section id="history-screen" class="screen hidden">
+
+        <div class="page-heading">
+            <p class="eyebrow">SUAS COMPRAS</p>
+
+            <h2>Histórico</h2>
+
+            <p>
+            Consulte suas compras anteriores e acompanhe
+            seus gastos.
+            </p>
+        </div>
+
+        <!-- RESUMO DO HISTÓRICO -->
+
+        <div
+            id="history-count"
+            class="history-count"
+            aria-live="polite"
+        ></div>
+
+        <!-- LISTA DE COMPRAS -->
+
+        <div
+            id="history-list"
+            class="history-list"
+        ></div>
+
+        <!-- ESTADO VAZIO -->
+
+        <div
+            id="history-empty"
+            class="empty-list"
+        >
+            <span>🧾</span>
+
+            <p>Nenhuma compra registrada</p>
+
+            <small>
+             Quando você finalizar uma compra,
+             ela aparecerá aqui.
+            </small>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- NAVEGAÇÃO INFERIOR -->
+    <nav class="bottom-nav">
+
+      <button class="nav-item active" data-screen="home">
+        <span class="nav-icon">⌂</span>
+        <span>Início</span>
+      </button>
+
+      <button class="nav-item" data-screen="new-purchase">
+        <span class="nav-icon">＋</span>
+        <span>Nova compra</span>
+      </button>
+
+      <button class="nav-item" data-screen="history">
+        <span class="nav-icon">▦</span>
+        <span>Histórico</span>
+      </button>
+
+    </nav>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  </div>
+
+  <!-- =================================
+      MODAL DE DETALHES DA COMPRA
+  ================================= -->
+
+  <div
+    id="purchase-modal"
+    class="purchase-modal hidden"
+    aria-hidden="true">
+
+    <!-- Fundo escurecido -->
+    <button
+      type="button"
+      class="purchase-modal-backdrop"
+      id="close-purchase-modal-backdrop"
+      aria-label="Fechar detalhes da compra"
+    ></button>
+
+    <!-- Janela principal -->
+    <section
+      class="purchase-modal-content"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="purchase-modal-title"
+    >
+
+      <!-- Cabeçalho -->
+      <header class="purchase-modal-header">
+        <div>
+          <h2 id="purchase-modal-title">Detalhes da compra</h2>
+          <p id="purchase-modal-date">Data da compra</p>
+        </div>
+
+        <button
+          type="button"
+          class="purchase-modal-close"
+          id="close-purchase-modal"
+          aria-label="Fechar"
+        >
+          &times;
+        </button>
+      </header>
+
+      <!-- Lista de produtos -->
+      <div
+        class="purchase-modal-body"
+        id="purchase-modal-products"
+      ></div>
+
+      <!-- Total -->
+      <footer class="purchase-modal-footer">
+        <div>
+          <span id="purchase-modal-total-label">
+            Total da compra
+          </span>
+
+          <strong id="purchase-modal-total">R$ 0,00</strong>
+        </div>
+      </footer>
+
+    </section>
+  </div>
+</body>
+</html>
